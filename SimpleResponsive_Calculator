@@ -1,0 +1,80 @@
+#index.html
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-Time Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="input-section">
+        <input
+          type="text"
+          id="expressioninput"
+          placeholder="Enter an expression"
+        />
+      </div>
+      <div class="result-section">
+        <div id="result">Result:</div>
+      </div>
+    </div>
+    <script src="calculate.js"></script>
+  </body>
+</html>
+
+#styles.css
+
+* {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.calculator {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.input-section {
+  margin-bottom: 10px;
+}
+
+#expressioninput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.result-section {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+#result {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#javascript js file
+
+const expressionInput = document.getElementById('expressioninput');
+const resultDiv = document.getElementById('result');
+function evaluateExpression() {
+    const expression = expressioninput.value;
+    try {
+        const result = eval(expression);
+        resultDiv.textContent = `Result: ${result}`;
+    } catch (error) {
+        resultDiv.textContent = 'Invalid expression';
+    }
+}
+expressionInput.addEventListener('input', evaluateExpression);
+evaluateExpression();
